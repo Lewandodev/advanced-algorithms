@@ -34,7 +34,7 @@ def quciklognsort(array):
                 equal.append(tab)
             else:
                 lower.append(tab)'''
-#rest of the function is same
+#rest of the function stays the same
 
 
 sortedlist_ownfunction=quciklognsort(Array)
@@ -61,3 +61,4 @@ def binary_search(list,targetval):
             last=middle-1
 
     return None
+
