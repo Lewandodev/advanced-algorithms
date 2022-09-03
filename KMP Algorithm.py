@@ -26,4 +26,28 @@
 
 
 
-#LPS function:
+#KMP and LPS function:
+
+def KMP(text,pattern):
+    if pattern=='':
+        return 0
+    lps=[0]*len(pattern) #lps is always gonna be as big as our pattern
+    prev_lps=0
+    i=1
+    # the whole while loop is our LPS function
+    while i<len(pattern): #we going through every index
+        if pattern[i]==pattern[prev_lps]: #simpliest case characters match each other
+            lps[i]=prev_lps+1
+            prev_lps+=1
+            i+=1  #we want to check next indexes
+            #if i is 1 two first characters already match we don't need to start from beginning
+
+        else:
+            if prev_lps==0:
+                lps[i]=0 #if first character the last we can't have possible prefix that matches suffix
+                i+=1
+            else:
+                prev_lps=lps[prev_lps-1]
+
+
+
