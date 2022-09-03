@@ -47,7 +47,27 @@ def KMP(text,pattern):
                 lps[i]=0 #if first character the last we can't have possible prefix that matches suffix
                 i+=1
             else:
-                prev_lps=lps[prev_lps-1]
+                prev_lps=lps[prev_lps-1] #if indexes dont match we set the prev_lps value to whatever is on the left of our index in lps array
+
+    #KMP
+    a=0 #pointer for text
+    b=0 #pointer for pattern
+
+    while a<len(text): #loop in which we look for match to our pattern
+        if text[a]==pattern[b]:
+            a,b=a+1,b+1
+        else:
+            if b==0:
+                a+=1
+            else:
+                b=lps[b-1]
+        if b==len(pattern):
+            return a-len(pattern)
+    return -1
+
+
+
+
 
 
 
