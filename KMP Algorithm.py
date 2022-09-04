@@ -56,14 +56,20 @@ def KMP(text,pattern):
     while a<len(text): #loop in which we look for match to our pattern
         if text[a]==pattern[b]:
             a,b=a+1,b+1
-        else:
-            if b==0:
-                a+=1
+        else: #if characters don't match there is possibility that we will start searching from the mismatch since everything before was matching
+             #for example.: in string AAABAAAA and pattern:AAAA we will start next search from position 3 of our index (letter B)
+            if b==0:#there's possibility first character doesn't match pattern we are looking for
+                a+=1#in this case we increment our text pointer
             else:
-                b=lps[b-1]
-        if b==len(pattern):
-            return a-len(pattern)
-    return -1
+                b=lps[b-1] #we check lat matching index
+                #since we know other indexes matched before wrong character we set pointer to last match and cut the repeating work
+
+        if b==len(pattern): #finding the match
+            return a-len(pattern) #we return first index of our match
+
+    return -1 #we don't find the match we can return either -1 or text message:"match not found
+
+
 
 
 
