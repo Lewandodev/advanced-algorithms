@@ -71,9 +71,12 @@ def KMP(text,pattern):
 
 
 
+#example:
+
+text='AAAXAAAYAAAABBBB'
+pat='AAAA'
 
 
-
-
-
+print('finding pattern:',pat,'in',text)
+print('position of our match:',KMP(text,pat))
 
