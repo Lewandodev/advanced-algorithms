@@ -49,5 +49,17 @@ def partition(arr,prime,utmost): #
             arr[i],arr[j]=arr[j],arr[i]
             j+=1
     arr[j],arr[utmost]=arr[utmost],arr[j]
+
     return j
+
+
+#proper qucik sort function
+
+def qucik_sort(arr,prime,utmost):
+    if prime<utmost:
+        pivot=partition(arr,prime,utmost)
+        qucik_sort(arr,prime,pivot-1) #qucik sort of left part
+        qucik_sort(arr,pivot+1,utmost) #qucik sort of right part
+
+        return arr
 
