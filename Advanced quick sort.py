@@ -32,3 +32,22 @@ aba=[5,3,6,9,1,2,4]
 print(aba)
 print('insertion sort',insertion_sort(aba,0,6))#or len(aba)-1
 
+
+
+#quick sort function
+#for advanced qucik sort we will be using 2 part qucik sort function instead of the single function one
+
+
+#partition function
+def partition(arr,prime,utmost): #
+    pivot=arr[utmost]
+    i=prime
+    j=prime
+
+    for i in range(prime,utmost):
+        if arr[i]<pivot:
+            arr[i],arr[j]=arr[j],arr[i]
+            j+=1
+    arr[j],arr[utmost]=arr[utmost],arr[j]
+    return j
+
