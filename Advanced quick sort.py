@@ -14,6 +14,7 @@
 #we will need to modify both insertion and qucik sort functions for this advamced algorithm to work, each of the functions will have 3 values
 
 
+#some of the variable names will be repeated in further functions, their properties will be constant exmp.:variable arr occurs in all functions and has the same meaning
 #modified insertion sort
 def insertion_sort(arr,prime,n): #arr is array, prime is the first index, n is size of array but value we will input will be the last index
     for i in range(prime+1,n+1):
@@ -33,14 +34,15 @@ print(aba)
 print('insertion sort',insertion_sort(aba,0,6))#or len(aba)-1
 
 
+print()
 
 #quick sort function
 #for advanced qucik sort we will be using 2 part qucik sort function instead of the single function one
 
 
 #partition function
-def partition(arr,prime,utmost): #
-    pivot=arr[utmost]
+def partition(arr,prime,utmost): #utmost is last index or length of array-1
+    pivot=arr[utmost]#!!!REMINDER VARIABLE PRIME ISN'T PRIME NUMBER IT'S THE "START" OF ARRAY FIRST INDEX !!!
     i=prime
     j=prime
 
@@ -63,3 +65,36 @@ def qucik_sort(arr,prime,utmost):
 
         return arr
 
+#check if our quick sort works properly
+
+cbc=[9,5,7,1,4,3,2,6,8]
+print(cbc)
+print('Quick sort:',qucik_sort(cbc,0,len(cbc)-1))
+
+
+
+
+#Advanced qucik sort function (fusion of insertion sort and quick sort)
+
+def advanced_quick_sort(arr,prime,utmost):
+    while prime<utmost:
+        #If array size is less than our threshold we will use insertion sort
+        if utmost-prime+1<10: #10 is our threshold value but it can be any "small" value we could even add it as variable for our function
+            insertion_sort(arr,prime,utmost)
+            break
+
+        else:#in else case we will recursively call qucik sort
+            pivot=partition(arr,prime,utmost)
+
+            if pivot-prime<utmost-prime:#left part is less than right part of array we sort left
+                advanced_quick_sort(arr,prime,pivot-1)
+                prime=pivot+1 #we move to the right part of array
+
+            else:#right side is less than left we sort the right part
+                advanced_quick_sort(arr,pivot+1,utmost)
+                utmost=prime+1 #we move to the left
+
+
+ara=[10,12,1,5,7,2,3,4,13,8,14,6,15,9,16,19,18,20]
+advanced_quick_sort(ara,0,17)
+print(ara)
