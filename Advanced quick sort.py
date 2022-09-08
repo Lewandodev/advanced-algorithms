@@ -86,15 +86,18 @@ def advanced_quick_sort(arr,prime,utmost):
         else:#in else case we will recursively call qucik sort
             pivot=partition(arr,prime,utmost)
 
-            if pivot-prime<utmost-prime:#left part is less than right part of array we sort left
+            if pivot-prime<utmost-pivot:#left part is less than right part of array we sort left
                 advanced_quick_sort(arr,prime,pivot-1)
                 prime=pivot+1 #we move to the right part of array
 
             else:#right side is less than left we sort the right part
                 advanced_quick_sort(arr,pivot+1,utmost)
-                utmost=prime+1 #we move to the left
+                utmost=pivot-1 #we move to the left
 
 
-ara=[10,12,1,5,7,2,3,4,13,8,14,6,15,9,16,19,18,20]
-advanced_quick_sort(ara,0,17)
-print(ara)
+
+ara=[10,12,1,5,17,7,2,3,4,13,8,14,6,15,9,16,19,18,20,11]
+print('\nSorting via Advanced qucik sort:')
+print('unsorted',ara)
+advanced_quick_sort(ara,0,len(ara)-1)
+print('sorted:',ara)
