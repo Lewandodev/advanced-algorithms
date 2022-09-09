@@ -44,7 +44,20 @@ def fibo_arr(n):
     return f[n] #last element is the one we are looking for
 
 #linear runtime O(n)
-print('400 number in fibonacci :',fibo_arr(400))
+print('\n400 number in fibonacci :',fibo_arr(400))
 
 
-#t
+#there exist however much faster method that posses constant runtime of O(1)
+#it's purely mathematical method which uses golden ratio formula
+
+def fib_omega(n):
+    from math import sqrt #we import only sqrt function from library as we don't need anything else
+    goldenratio=(1+sqrt(5))/2.0 #golden ratio formula
+    return int(round(goldenratio**n/sqrt(5)))#we take golden ratio power it to the n and divide by square root of 2 and round it to nearest integer
+
+print('\n1000 number of fibonacci sequence:')
+print(fib_omega(1000))
+
+#this is the fastest way of getting n-th fibonacci sequence number
+#as we compute only one term without calculating the previous terms
+
