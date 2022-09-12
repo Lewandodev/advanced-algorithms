@@ -15,3 +15,25 @@
 #to solve this problem we will use Bellman Ford algorithm instead of Dijkstra's algorithm mostly because it has better runtime
 #and it can deal with engative weights
 
+
+#Exapmle with visual representation:
+#n=3     flights=[[0,1,100],[1,2,200],[0,2,700]]    src=0   dst=2   k=1
+
+
+#                        0
+#                      /  \
+#                  100/    \700
+#                    /      \
+#                   1---------2
+#                       200
+#shortest past will be from 0 to 2 but the cost is 700
+#much better path would be from 0 through 1 ending with  2 where price is smaller and it fits criteria as there is only 1 city between destinations (k=1)
+#the result will be 300
+
+
+#man idea of the algorithm we will write for this problem will be breadth search from our src(source) node and simultaneously keep track of each node we visited
+# or can visit and check what is the minimum price that it takes to reach that node. This will go on till we find the best route to our destination
+
+#during the breadth search we will go through every single edge in graph in order to find the minimum path as prices will consist of 2 arrays
+#
+
