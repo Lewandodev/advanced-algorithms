@@ -34,6 +34,14 @@
 #man idea of the algorithm we will write for this problem will be breadth search from our src(source) node and simultaneously keep track of each node we visited
 # or can visit and check what is the minimum price that it takes to reach that node. This will go on till we find the best route to our destination
 
-#during the breadth search we will go through every single edge in graph in order to find the minimum path as prices will consist of 2 arrays
-#
+#during the breadth search we will go through every single edge in graph in order to find the minimum price as go from one node to other
+#(at most k stops between starting pos and des means k+1)
+#we will need 2 price arrays the main "original" and temporary array
+#Values will be first put in temporary array
+#once we get fully updated temporary array we will copy it values and put them in the main array repleacing the placeholder values (such as infinities)
+#we skip edges we haven't got to for the source node (for exmp.: in visual representation getting from 1 to 2 while placeholder is inf is inf+200 not 200 therefore we skip)
+#this solution is much more readable and better to code
+
+
+
 
